@@ -27,7 +27,7 @@
     "@rollup/plugin-node-resolve": "8.4.0",
     "firebase": "^8.3.2",
     "prettier": "2.2.1",
-    "prettier-plugin-java": "0.8.3",
+    "prettier-plugin-java": "1.0.2",
     "rimraf": "3.0.2",
     "rollup": "2.42.3",
     "swiftlint": "1.0.1",
