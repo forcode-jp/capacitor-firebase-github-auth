@@ -1,9 +1,7 @@
 package com.auth.github.firebase.capacitor;
 
 import android.util.Log;
-
 import androidx.annotation.NonNull;
-
 import com.getcapacitor.JSObject;
 import com.getcapacitor.NativePlugin;
 import com.getcapacitor.Plugin;
@@ -20,6 +18,7 @@ import com.google.firebase.auth.OAuthProvider;
 
 @NativePlugin
 public class GitHubFirebaseAuth extends Plugin implements OnSuccessListener<AuthResult>, OnFailureListener {
+
     private static final String TAG = "GitHubFirebaseAuth";
 
     private FirebaseAuth firebaseAuth;
@@ -48,14 +47,12 @@ public class GitHubFirebaseAuth extends Plugin implements OnSuccessListener<Auth
         Task<AuthResult> pendingResultTask = firebaseAuth.getPendingAuthResult();
         if (pendingResultTask != null) {
             // There's something already here! Finish the sign-in for your user.
-            pendingResultTask
-                .addOnSuccessListener(this)
-                .addOnFailureListener(this);
+            pendingResultTask.addOnSuccessListener(this).addOnFailureListener(this);
         } else {
             // There's no pending result so you need to start the sign-in flow.
             // See below.
             firebaseAuth
-                .startActivityForSignInWithProvider(/* activity= */ this.bridge.getActivity(), provider.build())
+                .startActivityForSignInWithProvider(/* activity= */this.bridge.getActivity(), provider.build())
                 .addOnSuccessListener(this)
                 .addOnFailureListener(this);
         }
