@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "654288994671",
+    "project_id": "capacitor-firebase-github-auth",
+    "storage_bucket": "capacitor-firebase-github-auth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:654288994671:android:eb37c4b112a6e5041e289a",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "654288994671-7i047d268q1rsa814f4d2u7vsbre32n6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQjc8kQWoJ5_mnaD7yxUH21h7_BDLu0SM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "654288994671-7i047d268q1rsa814f4d2u7vsbre32n6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "654288994671-kpc4ls45auft8mmjin5sk6pdiifha92b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

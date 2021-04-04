@@ -1,7 +1,8 @@
 # NPM renames .gitignore to .npmignore
 # In order to prevent that, we remove the initial "."
 # And the CLI then renames it
-example/
+example/ios/App/App/GoogleService-info.plist
+example/android/app/google-services.json
 # node files
 dist/
 node_modules/
