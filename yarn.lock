@@ -23,19 +23,19 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@capacitor/android@^2.4.7":
+"@capacitor/android@2.4.7":
   version "2.4.7"
   resolved "https://registry.yarnpkg.com/@capacitor/android/-/android-2.4.7.tgz#c7edc5322dbd1db79c61b1f4e579b7b81024ce5d"
   integrity sha512-7jcmwheo94dJEOX1z4r3SlZrL+MvESav1xsUwC5ydLFZCpuvBKJ0szbDNWzCAglgpXmW9hC0WdwYBErgDrDPRg==
 
-"@capacitor/core@^2.4.7":
+"@capacitor/core@2.4.7":
   version "2.4.7"
   resolved "https://registry.yarnpkg.com/@capacitor/core/-/core-2.4.7.tgz#f3b4d5728db7e764c1153da5e67d369bda35b772"
   integrity sha512-ZPzXXQ4EPwR/ZhNDkmlxyzw4FvquIl/ROj8HMMM0MEd4xZfM8ulNGPIL6br9TWdlFLGBKq40eymPZjKaivGnig==
   dependencies:
     tslib "^1.9.0"
 
-"@capacitor/ios@^2.4.7":
+"@capacitor/ios@2.4.7":
   version "2.4.7"
   resolved "https://registry.yarnpkg.com/@capacitor/ios/-/ios-2.4.7.tgz#03eecc5348d2ac84e62fc17ae37cc266bcc6a437"
   integrity sha512-XKYU67ZM+yY4/vDJ3ZVfs+phjtWK8TcKwq75fGoxB9PKXuCmMi5bihPuA3Xs/sIFXuozpnaYnspp0eTRJ7bG0w==
@@ -281,12 +281,12 @@
     lodash.camelcase "^4.3.0"
     protobufjs "^6.8.6"
 
-"@ionic/prettier-config@^1.0.0":
+"@ionic/prettier-config@1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@ionic/prettier-config/-/prettier-config-1.0.1.tgz#791a95b061a4efdd7651396e6b5334a29ad18ff8"
   integrity sha512-/v8UOW7rxkw/hvrRe/QfjlQsdjkm3sfAHoE3uqffO5BoNGijQMARrT32JT9Ei0g6KySXPyxxW+7LzPHrQmfzCw==
 
-"@ionic/swiftlint-config@^1.0.0":
+"@ionic/swiftlint-config@1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@ionic/swiftlint-config/-/swiftlint-config-1.1.2.tgz#d41ea23e57a28c18499bc2f31cd15b201ee941fb"
   integrity sha512-UbE1AIlTowt9uR7fMzRtbQX4URcyuok7mcpdJfFDHAIGM6nDjohYMke+6xOr6ZYlLnEyVmBGNEg0+grEYRgcVg==
@@ -417,7 +417,7 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
-"@rollup/plugin-node-resolve@^8.1.0":
+"@rollup/plugin-node-resolve@8.4.0":
   version "8.4.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-node-resolve/-/plugin-node-resolve-8.4.0.tgz#261d79a680e9dc3d86761c14462f24126ba83575"
   integrity sha512-LFqKdRLn0ShtQyf6SBYO69bGE1upV6wUhBX0vFOUnLAyzx5cwp8svA0eHUnu8+YU57XOkrMtfG63QOpQx25pHQ==
@@ -700,7 +700,7 @@ faye-websocket@0.11.3:
   dependencies:
     websocket-driver ">=0.5.1"
 
-firebase@^8.3.1:
+firebase@8.3.1:
   version "8.3.1"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-8.3.1.tgz#7d08ca04feade96270345c6e9475d4055c93e97d"
   integrity sha512-2BhzHQ8ZDh4BLZ9bicW8FEKFOYmu/w1sKhR5vi4X9SP+dsYNoKyFOP7Sfmk0GoENzt2+Y04GgfS5YERXLQky+w==
@@ -1044,7 +1044,7 @@ picomatch@^2.2.2:
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.2.tgz#21f333e9b6b8eaff02468f5146ea406d345f4dad"
   integrity sha512-q0M/9eZHzmr0AulXyPwNfZjtwZ/RBZlbN3K3CErVrk50T2ASYI7Bye0EvekFY3IP1Nt2DHu0re+V2ZHIpMkuWg==
 
-prettier-plugin-java@^0.8.0:
+prettier-plugin-java@0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/prettier-plugin-java/-/prettier-plugin-java-0.8.3.tgz#a7d381c2945a2cdda4f7baa6ced2205cb6cceebb"
   integrity sha512-LyFle106727RkY1NBGzHHnzEJKjILigSfHPPqalNi5yJ/DkM5hjOVxWa4374gm44LStMl1arNgzpCnYPL0F8cg==
@@ -1058,7 +1058,7 @@ prettier@2.1.1:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.1.1.tgz#d9485dd5e499daa6cb547023b87a6cf51bee37d6"
   integrity sha512-9bY+5ZWCfqj3ghYBLxApy2zf6m+NJo5GzmLTpr9FsApsfjriNnS2dahWReHMi7qNPhhHl9SYHJs2cHZLgexNIw==
 
-prettier@^2.0.5:
+prettier@2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
   integrity sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==
@@ -1105,14 +1105,14 @@ resolve@^1.17.0:
     is-core-module "^2.2.0"
     path-parse "^1.0.6"
 
-rimraf@^3.0.0:
+rimraf@3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-3.0.2.tgz#f1a5402ba6220ad52cc1282bac1ae3aa49fd061a"
   integrity sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==
   dependencies:
     glob "^7.1.3"
 
-rollup@^2.21.0:
+rollup@2.42.3:
   version "2.42.3"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.42.3.tgz#7935d7bc8687faa5743432e207d761aa31fe6fee"
   integrity sha512-JjaT9WaUS5vmjy6xUrnPOskjkQg2cN4WSACNCwbOvBz8VDmbiKVdmTFUoMPRqTud0tsex8Xy9/boLbDW9HKD1w==
@@ -1178,7 +1178,7 @@ supports-color@^5.3.0:
   dependencies:
     has-flag "^3.0.0"
 
-swiftlint@^1.0.1:
+swiftlint@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/swiftlint/-/swiftlint-1.0.1.tgz#2b72ce6dd72b4dbe32c4276a35dda5b56bf4824f"
   integrity sha512-HV/fCJTpwgCeoMw5W21J5PnhXSAVg2dtgTPrAbHqFZR1dDHEdEiM7tObw/w+CEGW/68xwWWTgKfyyvyY/6uUxA==
@@ -1202,7 +1202,7 @@ tslib@^2.0.0, tslib@^2.0.1, tslib@^2.1.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
   integrity sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==
 
-typescript@~3.8.3:
+typescript@3.8.3:
   version "3.8.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.8.3.tgz#409eb8544ea0335711205869ec458ab109ee1061"
   integrity sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==
