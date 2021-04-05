@@ -24,7 +24,7 @@
     "@ionic/prettier-config": "1.0.1",
     "@ionic/swiftlint-config": "1.1.2",
     "@rollup/plugin-json": "4.1.0",
-    "@rollup/plugin-node-resolve": "8.4.0",
+    "@rollup/plugin-node-resolve": "11.2.1",
     "firebase": "8.3.2",
     "prettier": "2.2.1",
     "prettier-plugin-java": "1.0.2",
