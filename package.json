@@ -4,5 +4,10 @@
   "workspaces": [
     "packages/*"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn workspace capacitor-firebase-github-auth build",
+    "ios": "yarn build && yarn workspace example ios",
+    "android": "yarn build && yarn workspace example android"
+  }
 }
