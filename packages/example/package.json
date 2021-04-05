@@ -15,7 +15,7 @@
     "@types/react-dom": "16.9.12",
     "@types/react-router": "5.1.13",
     "@types/react-router-dom": "5.1.7",
-    "capacitor-firebase-github-auth": "0.1.0",
+    "capacitor-firebase-github-auth": "*",
     "ionicons": "5.5.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -43,7 +43,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "ios": "ionic capacitor run ios -l --external",
-    "android": "ionic capacitor run android -l",
+    "android": "ionic capacitor run android -l --external",
     "lint": "yarn prettier --check && yarn eslint",
     "prettier": "prettier \"**/*.{css,html,ts,js,java}\"",
     "eslint": "eslint src --cache"
