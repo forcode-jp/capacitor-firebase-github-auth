@@ -2,6 +2,8 @@ import { WebPlugin } from '@capacitor/core';
 import { GitHubFirebaseAuthPlugin, SignInResult } from './definitions';
 import firebase from 'firebase/app';
 
+import { registerWebPlugin } from '@capacitor/core';
+
 type OAuthCredential = firebase.auth.OAuthCredential;
 
 export class GitHubFirebaseAuthWeb
@@ -38,6 +40,4 @@ export class GitHubFirebaseAuthWeb
 const GitHubFirebaseAuth = new GitHubFirebaseAuthWeb();
 
 export { GitHubFirebaseAuth };
-
-import { registerWebPlugin } from '@capacitor/core';
 registerWebPlugin(GitHubFirebaseAuth);

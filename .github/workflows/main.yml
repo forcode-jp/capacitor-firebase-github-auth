@@ -20,3 +20,5 @@ jobs:
       - run: yarn install --frozen-lockfile
 
       - run: yarn workspace capacitor-firebase-github-auth lint
+
+      - run: yarn workspace capacitor-firebase-github-auth test
