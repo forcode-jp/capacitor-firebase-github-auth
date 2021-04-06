@@ -59,9 +59,13 @@ const Home: React.FC = () => {
           {user && <IonCardHeader>Logged in as {user?.displayName}</IonCardHeader>}
           <IonItem>
             {user ? (
-              <IonButton onClick={handleSignOut}>Logout</IonButton>
+              <IonButton data-testId="logout" onClick={handleSignOut}>
+                Logout
+              </IonButton>
             ) : (
-              <IonButton onClick={handleLoginClick}>GitHub Login</IonButton>
+              <IonButton data-testId="login" onClick={handleLoginClick}>
+                GitHub Login
+              </IonButton>
             )}
           </IonItem>
         </IonCard>
