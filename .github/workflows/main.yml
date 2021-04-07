@@ -17,7 +17,7 @@ jobs:
         with:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-      - run: yarn install --frozen-lockfile
+      - run: yarn build
 
       - run: yarn workspace capacitor-firebase-github-auth lint
 

@@ -20,9 +20,8 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "noEmit": true,
     "jsx": "react-jsx"
   },
   "files": ["src/index.ts", "package.json"],
-  "include": ["src"]
+  "include": ["src/*.ts"]
 }
