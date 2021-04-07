@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "postinstall": "npx cap sync android && cd ios/App && npx pod-install",
     "start": "react-scripts start",
     "prebuild": "yarn install",
     "build": "react-scripts build",
+    "postbuild": "npx cap sync android && cd ios/App && npx pod-install",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "ios": "ionic capacitor run ios -l --external",
