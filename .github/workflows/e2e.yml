@@ -58,6 +58,10 @@ jobs:
         run: yarn e2e:prepare > logs/build.log
         continue-on-error: true
 
+      - name: Run e2e tests
+        run: yarn e2e:run
+        continue-on-error: true
+
       - name: Upload logs
         uses: actions/upload-artifact@v1
         with:
