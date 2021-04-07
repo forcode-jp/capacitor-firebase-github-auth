@@ -22,8 +22,8 @@ jobs:
           GOOGLE_SERVICE: ${{ secrets.GOOGLE_SERVICE_JSON }}
           GOOGLE_SERVICE_INFO_PLIST: ${{ secrets.GOOGLE_SERVICE_INFO_PLIST }}
         run: |
-          echo $GOOGLE_SERVICE | base64 --decode --ignore-garbage > packages/example/android/app/google-services.json
-          echo $GOOGLE_SERVICE_INFO_PLIST | base64 --decode --ignore-garbage > packages/example/ios/App/GoogleService-Info.plist
+          echo $GOOGLE_SERVICE | base64 --decode > packages/example/android/app/google-services.json
+          echo $GOOGLE_SERVICE_INFO_PLIST | base64 --decode > packages/example/ios/App/GoogleService-Info.plist
 
       - name: Run appium server
         run: mkdir -p logs && yarn e2e:appium > logs/appium.log &

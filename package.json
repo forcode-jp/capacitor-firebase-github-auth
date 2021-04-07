@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "watch": "yarn workspace capacitor-firebase-github-auth watch",
-    "build": "yarn workspace capacitor-firebase-github-auth build && yarn workspace example build",
+    "build": "yarn workspace capacitor-firebase-github-auth build && yarn workspace example build && yarn workspace example cap copy",
     "ios": "yarn build && yarn workspace example ios",
     "android": "yarn build && yarn workspace example android",
     "test": "yarn workspace capacitor-firebase-github-auth test",
