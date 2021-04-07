@@ -1,4 +1,4 @@
-const path = require("path")
+const path = require("path");
 
 const matrix = [
   {
@@ -17,9 +17,12 @@ exports.default = matrix.map(({ avd, deviceName }) => ({
   allowTestPackages: true,
   platformName: "Android",
   deviceName,
-  app: path.join(__dirname, "../../android/app/build/outputs/apk/debug/app-debug.apk"),
+  app: path.join(
+    __dirname,
+    "../../android/app/build/outputs/apk/debug/app-debug.apk"
+  ),
   avd,
   autoAcceptAlerts: "true",
   autoGrantPermissions: "true",
   newCommandTimeout: 300000,
-}))
+}));

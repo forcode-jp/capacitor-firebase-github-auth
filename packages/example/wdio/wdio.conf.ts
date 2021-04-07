@@ -58,7 +58,10 @@ exports.config = {
     {
       platformName: "Android",
       deviceName: "Android Emulator",
-      app: path.join(__dirname, "../android/app/build/outputs/apk/debug/app-debug.apk"),
+      app: path.join(
+        __dirname,
+        "../android/app/build/outputs/apk/debug/app-debug.apk"
+      ),
       avd: "Pixel_XL_API_30",
       //  the name of the driver you wish to use
       automationName: "UiAutomator2",

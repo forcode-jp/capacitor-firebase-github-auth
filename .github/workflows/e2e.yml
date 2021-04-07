@@ -15,7 +15,7 @@ jobs:
         with:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-      - run: yarn workspace packages/capacitor-firebase-github-auth build && \
+      - run: yarn workspace capacitor-firebase-github-auth build && \
           yarn install --frozen-lockfile
 
       - name: Run appium server

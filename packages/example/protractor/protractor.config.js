@@ -1,8 +1,8 @@
-const tsNode = require("ts-node")
-const path = require("path")
+const tsNode = require("ts-node");
+const path = require("path");
 
-const androidCapabilities = require("./capabilities/android").default
-const iosCapabilities = require("./capabilities/ios").default
+const androidCapabilities = require("./capabilities/android").default;
+const iosCapabilities = require("./capabilities/ios").default;
 /**
  * @type {import("protractor").Config}
  */

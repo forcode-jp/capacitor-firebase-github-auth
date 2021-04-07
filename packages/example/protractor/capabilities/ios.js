@@ -1,4 +1,4 @@
-const path = require("path")
+const path = require("path");
 
 const matrix = [
   {
@@ -14,7 +14,10 @@ exports.default = matrix.map(({ version, deviceName }) => ({
   browserName: "",
   autoWebview: true,
   autoWebviewTimeout: 20000,
-  app: path.join(__dirname, "../../ios/App/App.xcarchive/Products/Applications/App.app"),
+  app: path.join(
+    __dirname,
+    "../../ios/App/App.xcarchive/Products/Applications/App.app"
+  ),
   version,
   platform: "iOS",
   deviceName,
