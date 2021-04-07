@@ -2,7 +2,6 @@
   "name": "example",
   "version": "0.0.1",
   "private": true,
-  "dependencies": {},
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -12,7 +11,13 @@
     "android": "ionic capacitor run android -l --external",
     "lint": "yarn prettier --check && yarn eslint",
     "prettier": "prettier \"**/*.{css,html,ts,js,java}\"",
-    "eslint": "eslint src --cache"
+    "eslint": "eslint src --cache",
+    "protractor:appium": "appium --allow-insecure chromedriver_autodownload",
+    "protractor:run": "protractor protractor/protractor.config.js --verbose",
+    "wdio:build": "tsc --project ./wdio/tsconfig.json",
+    "wdio": "wdio wdio/out/wdio.conf.js",
+    "build:android": "cd android && ./gradlew assembleRelease",
+    "build:ios": "cd ios/App && xcodebuild -showsdks && xcodebuild -workspace App.xcworkspace -arch x86_64 -sdk iphonesimulator -scheme App clean archive -configuration debug -archivePath App.xcarchive"
   },
   "eslintConfig": {
     "extends": [
@@ -32,6 +37,8 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {},
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "dependencies": {
+    "capacitor-firebase-github-auth": "0.1.0"
+  }
 }

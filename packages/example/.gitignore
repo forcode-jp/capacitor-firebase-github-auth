@@ -29,3 +29,8 @@ yarn-error.log*
 
 google-services.json
 GoogleService-Info.plist
+
+ios/App/App.xcarchive
+
+test/out
+protractor/screenshots
