@@ -44,7 +44,7 @@ jobs:
 
       - name: Install iOS Runtime
         env:
-          VERSION: 14.4
+          VERSION: 14.3
           DEVICE_TYPE: iPhone-12-Pro-Max
         run: |
           gem install xcode-install
