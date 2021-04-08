@@ -45,12 +45,13 @@ jobs:
       - name: Install iOS Runtime
         env:
           VERSION: 14.3
+          RUNTIME: 14-3
           DEVICE_TYPE: iPhone-12-Pro-Max
         run: |
           gem install xcode-install
           xcversion simulators --install="iOS ${VERSION}"
 
-          xcrun simctl create TestiPhoneX com.apple.CoreSimulator.SimDeviceType.${DEVICE_TYPE} ${VERSION} > deviceid.txt
+          xcrun simctl create TestiPhoneX com.apple.CoreSimulator.SimDeviceType.${DEVICE_TYPE} com.apple.CoreSimulator.SimRuntime.iOS-${RUNTIME} > deviceid.txt
           DEVICEUUID=`cat deviceid.txt`
           echo $DEVICEUUID
           xcrun simctl boot $DEVICEUUID &
