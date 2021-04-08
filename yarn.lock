@@ -2858,7 +2858,7 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jasmine@^3.6.2", "@types/jasmine@^3.6.9":
+"@types/jasmine@3.6.9", "@types/jasmine@^3.6.2":
   version "3.6.9"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-3.6.9.tgz#8785870f87839b7d91b45d7b226380f28dee5d9f"
   integrity sha512-B53NIwMj/AO0O+xfSWLYmKB0Mo6TYxfv2Mk8/c1T2w/e38t55iaPR6p7pHXTTtqfTmevPK3i8T1YweYFTZlxDw==
@@ -2934,15 +2934,15 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.35.tgz#42c953a4e2b18ab931f72477e7012172f4ffa313"
   integrity sha512-Lt+wj8NVPx0zUmUwumiVXapmaLUcAk3yPuHCFVXras9k5VT9TdhJqKqGVUQCD60OTMCl0qxJ57OiTL0Mic3Iag==
 
+"@types/node@14.14.37":
+  version "14.14.37"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.37.tgz#a3dd8da4eb84a996c36e331df98d82abd76b516e"
+  integrity sha512-XYmBiy+ohOR4Lh5jE379fV2IU+6Jn4g5qASinhitfyO71b/sCo6MKsMLF5tc7Zf2CE8hViVQyYSobJNke8OvUw==
+
 "@types/node@^13.7.0":
   version "13.13.47"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.47.tgz#6eca42c3462821309b26edbc2eff0db1e37ab9bc"
   integrity sha512-R6851wTjN1YJza8ZIeX6puNBSi/ZULHVh4WVleA7q256l+cP2EtXnKbO455fTs2ytQk3dL9qkU+Wh8l/uROdKg==
-
-"@types/node@^14.14.37":
-  version "14.14.37"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.37.tgz#a3dd8da4eb84a996c36e331df98d82abd76b516e"
-  integrity sha512-XYmBiy+ohOR4Lh5jE379fV2IU+6Jn4g5qASinhitfyO71b/sCo6MKsMLF5tc7Zf2CE8hViVQyYSobJNke8OvUw==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -4083,7 +4083,7 @@ appium-chromedriver@^4.13.0, appium-chromedriver@^4.23.1:
     xmldom "^0.x"
     xpath "^0.x"
 
-appium-doctor@^1.16.0:
+appium-doctor@1.16.0:
   version "1.16.0"
   resolved "https://registry.yarnpkg.com/appium-doctor/-/appium-doctor-1.16.0.tgz#543af1c3f8c0eea7903e9863ee467d29181ed32d"
   integrity sha512-a1lL7iOYkh4Nb29xpueDYKL2D5499eX45L0JeyYs3Rir2arD7RB5YzWPwi2/mQ8FWcTGDuwgx/l7NrS+LRVTDg==
@@ -4519,7 +4519,7 @@ appium-youiengine-driver@^1.2.0:
     source-map-support "^0.5.19"
     teen_process "^1.15.0"
 
-appium@^1.20.2:
+appium@1.20.2:
   version "1.20.2"
   resolved "https://registry.yarnpkg.com/appium/-/appium-1.20.2.tgz#9b90323a2a4e97f1a65fa593a486c99fc1194bfc"
   integrity sha512-4uQ47RmQn01L1X1rjCUcs6KHL0nWuOpTZ4v5roeHZfj5mRo29w8nUD9TKKh7yuu1uNsuQaWbjOlIuzjo6TtiOQ==
@@ -5798,7 +5798,7 @@ chrome-trace-event@^1.0.2:
   dependencies:
     tslib "^1.9.0"
 
-chromedriver@^89.0.0:
+chromedriver@89.0.0:
   version "89.0.0"
   resolved "https://registry.yarnpkg.com/chromedriver/-/chromedriver-89.0.0.tgz#a6f27aa306400651a20dc04976fe5b2c4e65d61a"
   integrity sha512-+DVYp3+m6tZUYTMl9fEgCZIDk9YBTcHws82nIV1JYwusu51zRITA0oeNzuPyFhuK7ageFnnKCDviH2BL5I4M0w==
@@ -13238,7 +13238,7 @@ protobufjs@^6.8.6:
     "@types/node" "^13.7.0"
     long "^4.0.0"
 
-protractor@^7.0.0:
+protractor@7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/protractor/-/protractor-7.0.0.tgz#c3e263608bd72e2c2dc802b11a772711a4792d03"
   integrity sha512-UqkFjivi4GcvUQYzqGYNe0mLzfn5jiLmO8w9nMhQoJRLhy2grJonpga2IWhI6yJO30LibWXJJtA4MOIZD2GgZw==
@@ -15556,7 +15556,7 @@ tryer@^1.0.1:
   resolved "https://registry.yarnpkg.com/tryer/-/tryer-1.0.1.tgz#f2c85406800b9b0f74c9f7465b81eaad241252f8"
   integrity sha512-c3zayb8/kWWpycWYg87P71E1S1ZL6b6IJxfb5fvsUgsf0S2MVGaDhDXXjDMpdCpfWXqptc+4mXwmiy1ypXqRAA==
 
-ts-node@^9.1.1:
+ts-node@9.1.1:
   version "9.1.1"
   resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-9.1.1.tgz#51a9a450a3e959401bda5f004a72d54b936d376d"
   integrity sha512-hPlt7ZACERQGf03M253ytLY3dHbGNGrAq9qIHWUY9XHYl1z7wYngSr3OQ5xmui8o2AaxsONxIzjafLUiWBo1Fg==
@@ -16068,7 +16068,7 @@ wcwidth@>=1.0.1:
   dependencies:
     defaults "^1.0.3"
 
-wdio-chromedriver-service@^7.0.0:
+wdio-chromedriver-service@7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/wdio-chromedriver-service/-/wdio-chromedriver-service-7.0.0.tgz#c5b47dd03c115f728d932b82510c5940a61c97c1"
   integrity sha512-0EhlZSpR95xF6HAIi1Czi3PEzv36xT/cpPJ+4eghhJYCqAC0Tf3B5T+WAVmd6FFpQLCRUHvBC5HmF2os6w0vDQ==
