@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "declaration": false,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": ["ESNext", "DOM"],
+    "outDir": "out/",
+    "module": "commonjs",
+    "target": "es5",
+    "types": ["jasmine", "node", "webdriverio/sync", "@wdio/jasmine-framework"]
+  },
+  "include": ["./*/**.ts", "wdio.conf.ts"]
+}

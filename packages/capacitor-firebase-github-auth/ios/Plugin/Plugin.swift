@@ -1,3 +1,4 @@
+/* swiftlint:disable force_unwrapping */
 import Foundation
 import Capacitor
 import FirebaseCore
@@ -20,7 +21,7 @@ public class GitHubFirebaseAuth: CAPPlugin {
 
     @objc override public func load() {
         print("GitHubFirebaseAuth: Initialized")
-        if (FirebaseApp.app() == nil) {
+        if FirebaseApp.app() == nil {
             FirebaseApp.configure()
         }
     }
@@ -66,7 +67,7 @@ public class GitHubFirebaseAuth: CAPPlugin {
         // GitHub OAuth ID token can be retrieved by calling:
         // oauthCredential.idToken
         let result: PluginResultData = [
-            "accessToken": oauthCredential.accessToken ?? "",
+            "accessToken": oauthCredential.accessToken ?? ""
         ]
         call.success(result)
     }

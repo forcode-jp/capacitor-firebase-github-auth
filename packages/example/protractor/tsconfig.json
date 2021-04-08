@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": ["ESNext"],
+    "outDir": ".",
+    "module": "commonjs",
+    "target": "es5",
+    "types": ["jasmine", "node"],
+    "esModuleInterop": true
+  },
+  "include": ["tests/**/*.ts"],
+  "exclude": ["node_modules/*"]
+}

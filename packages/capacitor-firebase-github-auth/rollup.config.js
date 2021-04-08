@@ -1,5 +1,6 @@
 import json from '@rollup/plugin-json';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   input: 'dist/esm/src/index.js',
   output: [

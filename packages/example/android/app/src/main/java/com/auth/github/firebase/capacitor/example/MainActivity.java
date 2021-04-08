@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.auth.github.firebase.capacitor.example;
 
 import android.os.Bundle;
 import com.auth.github.firebase.capacitor.GitHubFirebaseAuth;
