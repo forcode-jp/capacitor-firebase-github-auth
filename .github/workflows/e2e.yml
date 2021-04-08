@@ -28,31 +28,14 @@ jobs:
       - name: Run appium server
         run: mkdir -p logs && yarn e2e:appium > logs/appium.log &
 
-      #- name: Set up Java
-      #  uses: actions/setup-java@v2
-      #  with:
-      #    java-version: "15"
-
-      # ref: https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/android?view=azure-devops#test-on-the-android-emulator
       - name: Run Android Emulator
-        run: |
-          # Install AVD files
-          echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-30;google_apis;x86'
-
-          # Create emulator
-          echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd --name Pixel_XL_API_30 --device "pixel" --package 'system-images;android-30;google_apis;x86' --abi "x86" --force
-
-          $ANDROID_HOME/emulator/emulator -list-avds
-
-          echo "Starting emulator"
-
-          # Start emulator in background
-          nohup $ANDROID_HOME/emulator/emulator -avd xamarin_android_emulator -no-snapshot > /dev/null 2>&1 &
-          $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done; input keyevent 82'
-
-          $ANDROID_HOME/platform-tools/adb devices
-
-          echo "Emulator started"
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 30
+          target: google_apis
+          profile: pixel_xl
+          avd-name: Pixel_XL_API_30
+          working_directory: packages/example/android
 
       - name: Build archives for Emulators
         run: yarn e2e:prepare > logs/build.log
