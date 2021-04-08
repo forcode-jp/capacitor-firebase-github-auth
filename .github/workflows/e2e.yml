@@ -15,6 +15,16 @@ jobs:
         with:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-modules-
+
+      - uses: actions/cache@v1
+        with:
+          path: "**/Pods"
+          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+
       - run: yarn build
 
       - name: Restore GoogleService info
@@ -28,14 +38,44 @@ jobs:
       - name: Run appium server
         run: mkdir -p logs && yarn e2e:appium > logs/appium.log &
 
+      - name: List iOS Devices & Platforms
+        run: |
+          xcrun simctl list
+
+      - name: Install iOS Runtime
+        env:
+          VERSION: 14.4
+          DEVICE_TYPE: iPhone-12-Pro-Max
+        run: |
+          gem install xcode-install
+          xcversion simulators --install="iOS ${VERSION}"
+
+          xcrun simctl create TestiPhoneX com.apple.CoreSimulator.SimDeviceType.${DEVICE_TYPE} ${VERSION} > deviceid.txt
+          DEVICEUUID=`cat deviceid.txt`
+          echo $DEVICEUUID
+          xcrun simctl boot $DEVICEUUID &
+
       - name: Run Android Emulator
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 30
-          target: google_apis
-          profile: pixel_xl
-          avd-name: Pixel_XL_API_30
-          working_directory: packages/example/android
+        continue-on-error: true
+        env:
+          API_LEVEL: 30
+          TARGET: google_apis
+          PROFILE: pixel_xl
+          AVD_NAME: Pixel_XL_API_30
+        run: |
+          $ANDROID_HOME/tools/bin/sdkmanager --install 'build-tools;30.0.3' platform-tools 'platforms;android-${API_LEVEL}' > /dev/null
+          $ANDROID_HOME/tools/bin/sdkmanager --install emulator > /dev/null
+          $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-${API_LEVEL};${TARGET};x86' > /dev/null
+          echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd --force -n ${AVD_NAME} --abi '${TARGET}/x86' --package 'system-images;android-${API_LEVEL};${TARGET};x86' --device '${PROFILE}'
+
+          echo $ANDROID_HOME/emulator/emulator -list-avds
+
+          echo "Starting emulator"
+          nohup $ANDROID_HOME/emulator/emulator -avd ${AVD_NAME} -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim &
+
+          $ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed
+          $ANDROID_HOME/platform-tools/adb devices
+          echo "Emulator started"
 
       - name: Build archives for Emulators
         run: yarn e2e:prepare > logs/build.log
