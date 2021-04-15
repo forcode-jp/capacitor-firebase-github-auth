@@ -28,6 +28,7 @@ exports.default = matrix.map(({ avd, deviceName }) => ({
   autoAcceptAlerts: "true",
   autoGrantPermissions: "true",
   newCommandTimeout: 300000,
-  automationName: "Appium",
+  // automationName: "Appium",
+  // skipServerInstallation: true,
   // fullReset: "true",
 }));
