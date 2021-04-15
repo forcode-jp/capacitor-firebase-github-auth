@@ -1,0 +1,81 @@
+name: e2e Android
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/cache@v2
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-modules-
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - uses: actions/cache@v2
+        with:
+          path: Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+
+      - run: yarn build
+
+      - name: Restore GoogleService info
+        env:
+          GOOGLE_SERVICE: ${{ secrets.GOOGLE_SERVICE_JSON }}
+          GOOGLE_SERVICE_INFO_PLIST: ${{ secrets.GOOGLE_SERVICE_INFO_PLIST }}
+        run: |
+          echo $GOOGLE_SERVICE | base64 --decode > packages/example/android/app/google-services.json
+          echo $GOOGLE_SERVICE_INFO_PLIST | base64 --decode > packages/example/ios/App/GoogleService-Info.plist
+
+      - name: Run appium server
+        run: mkdir -p logs && yarn e2e:appium > logs/appium.log &
+
+      - name: Build archives for Emulators
+        run: yarn workspace example build:android > logs/build.log
+        continue-on-error: true
+
+      - name: Run Android Emulator
+        continue-on-error: true
+        env:
+          API_LEVEL: 30
+          TARGET: google_apis
+          PROFILE: pixel_xl
+          AVD_NAME: Pixel_XL_API_30
+        run: bash ./scripts/start-android-emulator.sh
+
+      - name: Run e2e tests
+        env:
+          PLATFORM: android
+          TESTING_GITHUB_USERNAME: ${{ secrets.TESTING_GITHUB_USERNAME }}
+        run: |
+          adb install -r --no-incremental $(find node_modules/appium-uiautomator2-server/apks -regex '.*v[0-9].*.apk')
+          yarn e2e:run
+
+      - name: Upload logs
+        uses: actions/upload-artifact@v1
+        with:
+          name: logs
+          path: logs
+        continue-on-error: true
+
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v1
+        continue-on-error: true
+        with:
+          name: screenshots
+          path: packages/example/protractor/screenshots

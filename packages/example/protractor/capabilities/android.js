@@ -14,6 +14,9 @@ exports.default = matrix.map(({ avd, deviceName }) => ({
   browserName: "",
   autoWebview: true,
   autoWebviewTimeout: 20000,
+  adbExecTimeout: 120000,
+  avdLaunchTimeout: 120000,
+  avdReadyTimeout: 120000,
   allowTestPackages: true,
   platformName: "Android",
   deviceName,
@@ -25,4 +28,6 @@ exports.default = matrix.map(({ avd, deviceName }) => ({
   autoAcceptAlerts: "true",
   autoGrantPermissions: "true",
   newCommandTimeout: 300000,
+  automationName: "Appium",
+  // fullReset: "true",
 }));

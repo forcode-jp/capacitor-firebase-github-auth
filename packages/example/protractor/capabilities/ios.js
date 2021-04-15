@@ -24,4 +24,5 @@ exports.default = matrix.map(({ version, deviceName }) => ({
   platformName: "iOS",
   automationName: "XCUITest",
   nativeWebTap: "true",
+  // fullReset: "true"
 }));

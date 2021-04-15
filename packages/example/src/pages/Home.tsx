@@ -43,7 +43,7 @@ const Home: React.FC = () => {
 
   return (
     <IonPage>
-      <IonLoading isOpen={isLoading} />
+      <IonLoading data-test-id="loading" isOpen={isLoading} />
       <IonHeader>
         <IonToolbar>
           <IonTitle>Blank</IonTitle>
@@ -56,14 +56,18 @@ const Home: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonCard>
-          {user && <IonCardHeader>Logged in as {user?.displayName}</IonCardHeader>}
+          {user && (
+            <IonCardHeader data-test-id="card-header">
+              Logged in as {user?.displayName}
+            </IonCardHeader>
+          )}
           <IonItem>
             {user ? (
-              <IonButton data-testId="logout" onClick={handleSignOut}>
+              <IonButton data-test-id="logout" onClick={handleSignOut}>
                 Logout
               </IonButton>
             ) : (
-              <IonButton data-testId="login" onClick={handleLoginClick}>
+              <IonButton data-test-id="login" onClick={handleLoginClick}>
                 GitHub Login
               </IonButton>
             )}
