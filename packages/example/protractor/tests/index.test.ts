@@ -15,13 +15,18 @@ const saveImage = (filename: string, data: string) => {
 
 const switchWebviewContext = async () => {
   const contexts = await browser.driver.listContexts();
+  console.log(`Available contexts: ${contexts}`);
   const currentContext = await browser.driver.getCurrentContext();
   console.log("Current context is: " + currentContext);
   const newContext = contexts.find(
     (c) => c.includes("WEBVIEW") && currentContext !== c
   );
-  console.log("Switched context to: " + newContext);
-  await browser.driver.selectContext(newContext);
+  if (newContext) {
+    console.log("Switched context to: " + newContext);
+    await browser.driver.selectContext(newContext);
+  } else {
+    console.log("Context not found");
+  }
 };
 
 describe("App", () => {
@@ -47,7 +52,6 @@ describe("App", () => {
 
     await loginButton.click();
     await browser.sleep(10000);
-
     // in-app browser
     await switchWebviewContext();
 
