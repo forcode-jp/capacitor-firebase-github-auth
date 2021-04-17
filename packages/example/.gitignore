@@ -33,4 +33,4 @@ GoogleService-Info.plist
 ios/App/App.xcarchive
 
 test/out
-protractor/screenshots/*.png
+protractor/screenshots

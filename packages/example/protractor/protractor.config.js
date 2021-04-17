@@ -1,5 +1,6 @@
 const tsNode = require("ts-node");
 const path = require("path");
+const HtmlReporter = require("protractor-beautiful-reporter");
 
 const androidCapabilities = require("./capabilities/android").default;
 const iosCapabilities = require("./capabilities/ios").default;
@@ -21,6 +22,12 @@ const config = {
   },
   seleniumAddress: "http://localhost:4723/wd/hub",
   onPrepare: () => {
+    // eslint-disable-next-line no-undef
+    jasmine.getEnv().addReporter(
+      new HtmlReporter({
+        baseDirectory: path.join(__dirname, "screenshots"),
+      }).getJasmine2Reporter()
+    );
     tsNode.register({
       project: path.join(__dirname, "./tsconfig.json"),
     });

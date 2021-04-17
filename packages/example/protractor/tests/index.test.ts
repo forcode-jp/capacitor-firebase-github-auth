@@ -1,4 +1,10 @@
-import { browser, by, element, ElementFinder, ExpectedConditions } from "protractor";
+import {
+  browser,
+  by,
+  element,
+  ElementFinder,
+  ExpectedConditions,
+} from "protractor";
 import * as fs from "fs";
 
 const saveImage = (filename: string, data: string) => {
@@ -12,7 +18,9 @@ const switchWebviewContext = async () => {
   console.log(`Available contexts: ${contexts}`);
   const currentContext = await browser.driver.getCurrentContext();
   console.log("Current context is: " + currentContext);
-  const newContext = contexts.find((c) => c.includes("WEBVIEW") && currentContext !== c);
+  const newContext = contexts.find(
+    (c) => c.includes("WEBVIEW") && currentContext !== c
+  );
   if (newContext) {
     console.log("Switched context to: " + newContext);
     await browser.driver.selectContext(newContext);
@@ -35,7 +43,9 @@ describe("App", () => {
   });
 
   it("allows user to login", async () => {
-    const loginButton: ElementFinder = await element(by.css('[data-test-id="login"]'));
+    const loginButton: ElementFinder = await element(
+      by.css('[data-test-id="login"]')
+    );
     await browser.wait(ExpectedConditions.elementToBeClickable(loginButton));
     const loginButtonLabel: string = await loginButton.getText();
     expect(loginButtonLabel.toUpperCase()).toEqual("GITHUB LOGIN");

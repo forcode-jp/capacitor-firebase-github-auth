@@ -30,5 +30,6 @@ exports.default = matrix.map(({ avd, deviceName }) => ({
   newCommandTimeout: 300000,
   // automationName: "Appium",
   // skipServerInstallation: true,
+  noReset: "false",
   fullReset: "true",
 }));
