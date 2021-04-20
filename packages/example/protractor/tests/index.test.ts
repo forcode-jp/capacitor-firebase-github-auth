@@ -32,7 +32,6 @@ const switchWebviewContext = async () => {
 describe("App", () => {
   beforeAll(async () => {
     await browser.waitForAngularEnabled(false);
-    // await switchAppContext("WEBVIEW");
   });
 
   it("saves screenshots", async () => {
@@ -51,7 +50,7 @@ describe("App", () => {
     expect(loginButtonLabel.toUpperCase()).toEqual("GITHUB LOGIN");
 
     await loginButton.click();
-    await browser.sleep(10000);
+    await browser.sleep(20000);
     // in-app browser
     await switchWebviewContext();
     await browser.wait(ExpectedConditions.urlContains("github.com"), 20000);

@@ -25,11 +25,10 @@ exports.default = matrix.map(({ avd, deviceName }) => ({
     "../../android/app/build/outputs/apk/debug/app-debug.apk"
   ),
   avd,
-  autoAcceptAlerts: "true",
-  autoGrantPermissions: "true",
+  autoGrantPermissions: true,
   newCommandTimeout: 300000,
-  // automationName: "Appium",
+  automationName: "UiAutomator2",
   // skipServerInstallation: true,
-  noReset: "false",
-  fullReset: "true",
+  noReset: false,
+  fullReset: true,
 }));
