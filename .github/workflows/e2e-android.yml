@@ -59,6 +59,7 @@ jobs:
         run: bash ./scripts/start-android-emulator.sh
 
       - name: Run e2e tests
+        id: e2e_step
         env:
           PLATFORM: android
           TESTING_GITHUB_USERNAME: ${{ secrets.TESTING_GITHUB_USERNAME }}
@@ -68,13 +69,15 @@ jobs:
 
       - name: Upload logs
         uses: actions/upload-artifact@v1
+        if: failure() && steps.e2e_step.outcome == 'failure'
+        continue-on-error: true
         with:
           name: logs
           path: logs
-        continue-on-error: true
 
       - name: Upload screenshots
         uses: actions/upload-artifact@v1
+        if: failure() && steps.e2e_step.outcome == 'failure'
         continue-on-error: true
         with:
           name: screenshots
