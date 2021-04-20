@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 java -version
+echo $JAVA_HOME
 # Install AVD files
 echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install "system-images;android-${API_LEVEL};google_apis;x86"
 
