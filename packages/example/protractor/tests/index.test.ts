@@ -7,6 +7,8 @@ import {
 } from "protractor";
 import * as fs from "fs";
 
+const until = ExpectedConditions;
+
 const saveImage = (filename: string, data: string) => {
   const stream = fs.createWriteStream(`protractor/screenshots/${filename}.png`);
   stream.write(Buffer.from(data, "base64"));
@@ -29,6 +31,14 @@ const switchWebviewContext = async () => {
   }
 };
 
+const switchToNativeContext = async () => {
+  const contexts = await browser.driver.listContexts();
+  console.log(`Available contexts: ${contexts}`);
+  console.log("Switching to NATIVE");
+  const newContext = contexts.find((c) => c.includes("NATIVE"));
+  await browser.driver.selectContext(newContext);
+};
+
 describe("App", () => {
   beforeAll(async () => {
     await browser.waitForAngularEnabled(false);
@@ -45,15 +55,49 @@ describe("App", () => {
     const loginButton: ElementFinder = await element(
       by.css('[data-test-id="login"]')
     );
-    await browser.wait(ExpectedConditions.elementToBeClickable(loginButton));
+    await browser.wait(until.elementToBeClickable(loginButton));
     const loginButtonLabel: string = await loginButton.getText();
     expect(loginButtonLabel.toUpperCase()).toEqual("GITHUB LOGIN");
 
     await loginButton.click();
-    await browser.sleep(20000);
+    await browser.sleep(5000);
+
+    if (process.env.PLATFORM !== "iOS") {
+      await switchToNativeContext();
+
+      try {
+        const acceptButton: ElementFinder = await element(
+          by.xpath(
+            '*//android.widget.Button[@resource-id="com.android.chrome:id/terms_accept"]'
+          )
+        );
+        await browser.wait(
+          until.presenceOf(acceptButton),
+          2000,
+          "The welcome screen is not shown, this is not an error."
+        );
+        // If the `Accept & continue` is shown, click on it
+        await acceptButton.click();
+        // Wait for the `No Thanks` button and click on it
+        const noThanksButton: ElementFinder = await element(
+          by.xpath(
+            '*//android.widget.Button[@resource-id="com.android.chrome:id/negative_button"]'
+          )
+        );
+        await browser.wait(until.presenceOf(noThanksButton), 2000);
+        await noThanksButton.click();
+      } catch (e) {
+        console.log(`ERROR: ${e}`);
+      }
+
+      await browser.driver.selectContext(
+        "WEBVIEW_com.auth.github.firebase.capacitor.example"
+      );
+      await browser.sleep(5000);
+    }
     // in-app browser
     await switchWebviewContext();
-    await browser.wait(ExpectedConditions.urlContains("github.com"), 20000);
+    await browser.wait(until.urlContains("github.com"), 20000);
     expect(await browser.driver.getTitle()).toBe("Sign in to GitHub · GitHub");
     //  const usernameInputField: ElementFinder = await element(by.id("login_field"));
     //  await usernameInputField.sendKeys(process.env.TESTING_GITHUB_USERNAME ?? "");
