@@ -14,6 +14,9 @@ exports.default = matrix.map(({ avd, deviceName }) => ({
   browserName: "",
   autoWebview: true,
   autoWebviewTimeout: 20000,
+  adbExecTimeout: 120000,
+  avdLaunchTimeout: 120000,
+  avdReadyTimeout: 120000,
   allowTestPackages: true,
   platformName: "Android",
   deviceName,
@@ -22,7 +25,10 @@ exports.default = matrix.map(({ avd, deviceName }) => ({
     "../../android/app/build/outputs/apk/debug/app-debug.apk"
   ),
   avd,
-  autoAcceptAlerts: "true",
-  autoGrantPermissions: "true",
+  autoGrantPermissions: true,
   newCommandTimeout: 300000,
+  automationName: "UiAutomator2",
+  // skipServerInstallation: true,
+  noReset: false,
+  fullReset: true,
 }));
