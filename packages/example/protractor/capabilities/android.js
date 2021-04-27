@@ -1,11 +1,11 @@
-const path = require("path");
+const path = require("path")
 
 const matrix = [
   {
     avd: "Pixel_XL_API_30",
     deviceName: "Pixel_XL_API_30",
   },
-];
+]
 
 /**
  * @type {import('protractor').Capabilities[]}
@@ -31,4 +31,4 @@ exports.default = matrix.map(({ avd, deviceName }) => ({
   // skipServerInstallation: true,
   noReset: false,
   fullReset: true,
-}));
+}))

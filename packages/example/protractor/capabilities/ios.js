@@ -1,11 +1,11 @@
-const path = require("path");
+const path = require("path")
 
 const matrix = [
   {
     version: "14.4",
     deviceName: "iPhone 12 Pro Max",
   },
-];
+]
 
 /**
  * @type {import('protractor').Capabilities[]}
@@ -26,4 +26,4 @@ exports.default = matrix.map(({ version, deviceName }) => ({
   nativeWebTap: "true",
   noReset: "false",
   fullReset: "true",
-}));
+}))

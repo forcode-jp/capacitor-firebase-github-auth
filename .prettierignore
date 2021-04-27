@@ -1,0 +1,11 @@
+**/node_modules/**
+**/coverage/**
+**/build/**
+**/out/**
+.gradle
+.idea
+android
+ios
+dist
+.sqlite
+.gql

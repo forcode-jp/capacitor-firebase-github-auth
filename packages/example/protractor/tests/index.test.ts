@@ -4,101 +4,108 @@ import {
   element,
   ElementFinder,
   ExpectedConditions,
-} from "protractor";
-import * as fs from "fs";
+} from "protractor"
+import * as fs from "fs"
 
-const until = ExpectedConditions;
+const until = ExpectedConditions
 
 const saveImage = (filename: string, data: string) => {
-  const stream = fs.createWriteStream(`protractor/screenshots/${filename}.png`);
-  stream.write(Buffer.from(data, "base64"));
-  stream.end();
-};
+  const stream = fs.createWriteStream(`protractor/screenshots/${filename}.png`)
+  stream.write(Buffer.from(data, "base64"))
+  stream.end()
+}
 
 const switchWebviewContext = async () => {
-  const contexts = await browser.driver.listContexts();
-  console.log(`Available contexts: ${contexts}`);
-  const currentContext = await browser.driver.getCurrentContext();
-  console.log("Current context is: " + currentContext);
+  const contexts = await browser.driver.listContexts()
+  console.log(`Available contexts: ${contexts}`)
+  const currentContext = await browser.driver.getCurrentContext()
+  console.log("Current context is: " + currentContext)
   const newContext = contexts.find(
     (c) => c.includes("WEBVIEW") && currentContext !== c
-  );
+  )
   if (newContext) {
-    console.log("Switched context to: " + newContext);
-    await browser.driver.selectContext(newContext);
+    console.log("Switched context to: " + newContext)
+    await browser.driver.selectContext(newContext)
   } else {
-    console.log("Context not found");
+    console.log("Context not found")
   }
-};
+}
 
 const switchToNativeContext = async () => {
-  const contexts = await browser.driver.listContexts();
-  console.log(`Available contexts: ${contexts}`);
-  console.log("Switching to NATIVE");
-  const newContext = contexts.find((c) => c.includes("NATIVE"));
-  await browser.driver.selectContext(newContext);
-};
+  const contexts = await browser.driver.listContexts()
+  console.log(`Available contexts: ${contexts}`)
+  console.log("Switching to NATIVE")
+  const newContext = contexts.find((c) => c.includes("NATIVE"))
+  await browser.driver.selectContext(newContext)
+}
 
 describe("App", () => {
   beforeAll(async () => {
-    await browser.waitForAngularEnabled(false);
-  });
+    await browser.waitForAngularEnabled(false)
+  })
 
   it("saves screenshots", async () => {
-    const capabilities = await browser.getCapabilities();
-    const filename = capabilities.get("deviceName");
-    const data = await browser.takeScreenshot();
-    saveImage(filename, data);
-  });
+    const capabilities = await browser.getCapabilities()
+    const filename = capabilities.get("deviceName")
+    const data = await browser.takeScreenshot()
+    saveImage(filename, data)
+  })
 
   it("allows user to login", async () => {
     const loginButton: ElementFinder = await element(
       by.css('[data-test-id="login"]')
-    );
-    await browser.wait(until.elementToBeClickable(loginButton));
-    const loginButtonLabel: string = await loginButton.getText();
-    expect(loginButtonLabel.toUpperCase()).toEqual("GITHUB LOGIN");
+    )
+    await browser.wait(until.elementToBeClickable(loginButton))
+    const loginButtonLabel: string = await loginButton.getText()
+    expect(loginButtonLabel.toUpperCase()).toEqual("GITHUB LOGIN")
 
-    await loginButton.click();
-    await browser.sleep(5000);
+    await loginButton.click()
+    await browser.sleep(5000)
 
     if (process.env.PLATFORM !== "iOS") {
-      await switchToNativeContext();
+      await switchToNativeContext()
+
+      saveImage("chrome:before", await browser.takeScreenshot())
 
       try {
         const acceptButton: ElementFinder = await element(
           by.xpath(
             '*//android.widget.Button[@resource-id="com.android.chrome:id/terms_accept"]'
           )
-        );
+        )
+        saveImage("acceptButton", await browser.takeScreenshot())
         await browser.wait(
           until.presenceOf(acceptButton),
           2000,
           "The welcome screen is not shown, this is not an error."
-        );
+        )
         // If the `Accept & continue` is shown, click on it
-        await acceptButton.click();
+        await acceptButton.click()
         // Wait for the `No Thanks` button and click on it
         const noThanksButton: ElementFinder = await element(
           by.xpath(
             '*//android.widget.Button[@resource-id="com.android.chrome:id/negative_button"]'
           )
-        );
-        await browser.wait(until.presenceOf(noThanksButton), 2000);
-        await noThanksButton.click();
-      } catch (e) {
-        console.log(`ERROR: ${e}`);
-      }
+        )
+        saveImage("noThanksButton", await browser.takeScreenshot())
+        await browser.wait(until.presenceOf(noThanksButton), 2000)
+        await noThanksButton.click()
 
+        saveImage("chrome:after", await browser.takeScreenshot())
+      } catch (e) {
+        console.log(`ERROR: ${e}`)
+      }
+      saveImage("WEBVIEW:before", await browser.takeScreenshot())
       await browser.driver.selectContext(
         "WEBVIEW_com.auth.github.firebase.capacitor.example"
-      );
-      await browser.sleep(5000);
+      )
+      saveImage("WEBVIEW:after", await browser.takeScreenshot())
+      await browser.sleep(5000)
     }
     // in-app browser
-    await switchWebviewContext();
-    await browser.wait(until.urlContains("github.com"), 20000);
-    expect(await browser.driver.getTitle()).toBe("Sign in to GitHub · GitHub");
+    await switchWebviewContext()
+    await browser.wait(until.urlContains("github.com"), 20000)
+    expect(await browser.driver.getTitle()).toBe("Sign in to GitHub · GitHub")
     //  const usernameInputField: ElementFinder = await element(by.id("login_field"));
     //  await usernameInputField.sendKeys(process.env.TESTING_GITHUB_USERNAME ?? "");
     //  const passwordInputField: ElementFinder = await element(by.id("password"));
@@ -111,5 +118,5 @@ describe("App", () => {
     // const cardHeader: ElementFinder = await element(by.css('[data-test-id="card-header"]'));
     // await browser.wait(ExpectedConditions.visibilityOf(cardHeader));
     // expect(await cardHeader.getText()).toBe(`Logged in as ${process.env.TESTING_GITHUB_USERNAME}`);
-  });
-});
+  })
+})
