@@ -69,18 +69,15 @@ describe("App", () => {
     if (process.env.PLATFORM !== "iOS") {
       await switchToNativeContext()
 
-      await saveImage("chrome:before", await browser.takeScreenshot())
-
       try {
         const acceptButton: ElementFinder = await element(
           by.xpath(
             '*//android.widget.Button[@resource-id="com.android.chrome:id/terms_accept"]'
           )
         )
-        await saveImage("acceptButton", await browser.takeScreenshot())
         await browser.wait(
           until.presenceOf(acceptButton),
-          2000,
+          20000,
           "The welcome screen is not shown, this is not an error."
         )
         // If the `Accept & continue` is shown, click on it
@@ -91,21 +88,25 @@ describe("App", () => {
             '*//android.widget.Button[@resource-id="com.android.chrome:id/negative_button"]'
           )
         )
-        await saveImage("noThanksButton", await browser.takeScreenshot())
-        await browser.wait(until.presenceOf(noThanksButton), 2000)
+        await browser.wait(until.presenceOf(noThanksButton), 20000)
         await noThanksButton.click()
-
-        await saveImage("chrome:after", await browser.takeScreenshot())
+        await browser.sleep(5000)
+        console.log("Chaging context to app")
+        await browser.driver.selectContext(
+          "WEBVIEW_com.auth.github.firebase.capacitor.example"
+        )
+        const contexts = await browser.driver.listContexts()
+        console.log(`Available contexts: ${contexts}`)
+        const currentContext = await browser.driver.getCurrentContext()
+        console.log("Current context is: " + currentContext)
+        await saveImage("WEBVIEW:click", await browser.takeScreenshot())
       } catch (e) {
         console.log(`ERROR: ${e}`)
+        await saveImage("ERROR", await browser.takeScreenshot())
       }
-      await saveImage("WEBVIEW:before", await browser.takeScreenshot())
-      await browser.driver.selectContext(
-        "WEBVIEW_com.auth.github.firebase.capacitor.example"
-      )
-      await saveImage("WEBVIEW:after", await browser.takeScreenshot())
-      await browser.sleep(5000)
     }
+    await loginButton.click()
+    await saveImage("WEBVIEW", await browser.takeScreenshot())
     // in-app browser
     await switchWebviewContext()
     await browser.wait(until.urlContains("github.com"), 20000)

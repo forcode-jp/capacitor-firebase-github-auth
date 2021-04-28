@@ -2,8 +2,8 @@ const path = require("path")
 
 const matrix = [
   {
-    avd: "Pixel_XL_API_30",
-    deviceName: "Pixel_XL_API_30",
+    avd: "nexus_s",
+    deviceName: "nexus_s",
   },
 ]
 
@@ -19,12 +19,12 @@ exports.default = matrix.map(({ avd, deviceName }) => ({
   avdReadyTimeout: 120000,
   allowTestPackages: true,
   platformName: "Android",
-  deviceName,
   app: path.join(
     __dirname,
     "../../android/app/build/outputs/apk/debug/app-debug.apk"
   ),
-  avd,
+  avd: process.env.AVD_NAME,
+  deviceName: process.env.PROFILE,
   autoGrantPermissions: true,
   newCommandTimeout: 300000,
   automationName: "UiAutomator2",
