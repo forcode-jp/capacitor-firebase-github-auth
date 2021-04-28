@@ -10,9 +10,13 @@ import * as fs from "fs"
 const until = ExpectedConditions
 
 const saveImage = (filename: string, data: string) => {
-  const stream = fs.createWriteStream(`protractor/screenshots/${filename}.png`)
-  stream.write(Buffer.from(data, "base64"))
-  stream.end()
+  return new Promise((resolve) => {
+    const stream = fs.createWriteStream(
+      `protractor/screenshots/${filename}.png`
+    )
+    stream.write(Buffer.from(data, "base64"))
+    stream.end(resolve)
+  })
 }
 
 const switchWebviewContext = async () => {
@@ -48,7 +52,7 @@ describe("App", () => {
     const capabilities = await browser.getCapabilities()
     const filename = capabilities.get("deviceName")
     const data = await browser.takeScreenshot()
-    saveImage(filename, data)
+    await saveImage(filename, data)
   })
 
   it("allows user to login", async () => {
@@ -65,7 +69,7 @@ describe("App", () => {
     if (process.env.PLATFORM !== "iOS") {
       await switchToNativeContext()
 
-      saveImage("chrome:before", await browser.takeScreenshot())
+      await saveImage("chrome:before", await browser.takeScreenshot())
 
       try {
         const acceptButton: ElementFinder = await element(
@@ -73,7 +77,7 @@ describe("App", () => {
             '*//android.widget.Button[@resource-id="com.android.chrome:id/terms_accept"]'
           )
         )
-        saveImage("acceptButton", await browser.takeScreenshot())
+        await saveImage("acceptButton", await browser.takeScreenshot())
         await browser.wait(
           until.presenceOf(acceptButton),
           2000,
@@ -87,19 +91,19 @@ describe("App", () => {
             '*//android.widget.Button[@resource-id="com.android.chrome:id/negative_button"]'
           )
         )
-        saveImage("noThanksButton", await browser.takeScreenshot())
+        await saveImage("noThanksButton", await browser.takeScreenshot())
         await browser.wait(until.presenceOf(noThanksButton), 2000)
         await noThanksButton.click()
 
-        saveImage("chrome:after", await browser.takeScreenshot())
+        await saveImage("chrome:after", await browser.takeScreenshot())
       } catch (e) {
         console.log(`ERROR: ${e}`)
       }
-      saveImage("WEBVIEW:before", await browser.takeScreenshot())
+      await saveImage("WEBVIEW:before", await browser.takeScreenshot())
       await browser.driver.selectContext(
         "WEBVIEW_com.auth.github.firebase.capacitor.example"
       )
-      saveImage("WEBVIEW:after", await browser.takeScreenshot())
+      await saveImage("WEBVIEW:after", await browser.takeScreenshot())
       await browser.sleep(5000)
     }
     // in-app browser
