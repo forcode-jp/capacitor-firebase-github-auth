@@ -8,9 +8,9 @@ echo "y" | $ANDROID_HOME/tools/bin/sdkmanager "platform-tools" >/dev/null
 # Create emulator
 echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n "${AVD_NAME}" -k "system-images;android-${API_LEVEL};google_apis;x86_64" --device "${PROFILE}" --force --sdcard 512M
 
-# increase memory size to 2048M to avoid error "System UI is not responding"
 cat ~/.android/avd/${AVD_NAME}.avd/config.ini
 echo "hw.ramSize=2048" >> ~/.android/avd/${AVD_NAME}.avd/config.ini
+echo "hw.heapSize=256" >> ~/.android/avd/${AVD_NAME}.avd/config.ini
 cat ~/.android/avd/${AVD_NAME}.avd/config.ini
 
 echo "Starting emulator"
