@@ -16,7 +16,7 @@ cat ~/.android/avd/${AVD_NAME}.avd/config.ini
 echo "Starting emulator"
 
 # Start emulator in background
-nohup $ANDROID_HOME/emulator/emulator -avd ${AVD_NAME} -no-snapshot -noaudio -wipe-data > /dev/null 2>&1 &
+nohup $ANDROID_HOME/emulator/emulator -avd ${AVD_NAME} -wipe-data -no-window -no-snapshot -no-audio -no-boot-anim -accel on > /dev/null 2>&1 &
 $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done; input keyevent 82'
 
 $ANDROID_HOME/platform-tools/adb devices
