@@ -56,9 +56,7 @@ describe("App", () => {
   })
 
   it("allows user to login", async () => {
-    const loginButton: ElementFinder = await element(
-      by.css('[data-test-id="login"]')
-    )
+    const loginButton: ElementFinder = await element(by.id("login-button"))
     await browser.wait(until.elementToBeClickable(loginButton))
     const loginButtonLabel: string = await loginButton.getText()
     expect(loginButtonLabel.toUpperCase()).toEqual("GITHUB LOGIN")
