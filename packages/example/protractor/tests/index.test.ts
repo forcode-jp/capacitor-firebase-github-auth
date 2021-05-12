@@ -103,8 +103,6 @@ describe("App", () => {
         await saveImage("ERROR", await browser.takeScreenshot())
       }
     }
-    await loginButton.click()
-    await saveImage("WEBVIEW", await browser.takeScreenshot())
     // in-app browser
     await switchWebviewContext()
     await browser.wait(until.urlContains("github.com"), 20000)
