@@ -57,7 +57,7 @@
     "@ionic/prettier-config": "1.0.1",
     "@ionic/swiftlint-config": "1.1.2",
     "@rollup/plugin-json": "4.1.0",
-    "@rollup/plugin-node-resolve": "11.2.1",
+    "@rollup/plugin-node-resolve": "13.0.0",
     "@types/jasmine": "3.7.2",
     "appium": "1.20.2",
     "appium-doctor": "1.16.0",
