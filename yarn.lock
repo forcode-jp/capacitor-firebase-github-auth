@@ -1544,10 +1544,10 @@
   resolved "https://registry.yarnpkg.com/@ionic/prettier-config/-/prettier-config-1.0.1.tgz#791a95b061a4efdd7651396e6b5334a29ad18ff8"
   integrity sha512-/v8UOW7rxkw/hvrRe/QfjlQsdjkm3sfAHoE3uqffO5BoNGijQMARrT32JT9Ei0g6KySXPyxxW+7LzPHrQmfzCw==
 
-"@ionic/react-router@5.6.3":
-  version "5.6.3"
-  resolved "https://registry.yarnpkg.com/@ionic/react-router/-/react-router-5.6.3.tgz#186f5268c9f8fe65037a2a09eb5a79c94fe88b4d"
-  integrity sha512-MlhHuI3ZBtZP20m28AxYkBltA0V2j3kFHwwuTc28eoZBNXU3QcUXzFbrdH0i6R4BTLdqJYxjjaC+ZXvwtjFtKw==
+"@ionic/react-router@5.6.6":
+  version "5.6.6"
+  resolved "https://registry.yarnpkg.com/@ionic/react-router/-/react-router-5.6.6.tgz#ca8bb55c75a47371cfd33713adf77658da499096"
+  integrity sha512-MrRJhzhmAwyQ58RXxrMd2Zhpt0TkNnToCvo4LKdTybPYXq1ViYY/y+rL9PuIh1dEAOa+4qlp7oFuavww0PCmyg==
   dependencies:
     tslib "*"
 
