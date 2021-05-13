@@ -9,37 +9,41 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
-} from "@ionic/react";
-import "./Home.css";
-import firebase from "firebase/app";
-import { signInWithGitHubProvider, signOut, version } from "capacitor-firebase-github-auth";
-import { useEffect, useState } from "react";
+} from "@ionic/react"
+import "./Home.css"
+import firebase from "firebase/app"
+import {
+  signInWithGitHubProvider,
+  signOut,
+  version,
+} from "capacitor-firebase-github-auth"
+import { useEffect, useState } from "react"
 
 const Home: React.FC = () => {
-  const [user, setUser] = useState<firebase.User | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [user, setUser] = useState<firebase.User | null>(null)
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     return firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        setUser(user);
+        setUser(user)
       } else {
-        setUser(null);
+        setUser(null)
       }
-    });
-  }, []);
+    })
+  }, [])
 
   const handleLoginClick = async () => {
-    setIsLoading(true);
+    setIsLoading(true)
     try {
-      await signInWithGitHubProvider(firebase.auth());
+      await signInWithGitHubProvider(firebase.auth())
     } catch (e) {
-      console.error(e);
+      console.error(e)
     }
-    setIsLoading(false);
-  };
+    setIsLoading(false)
+  }
 
-  const handleSignOut = () => signOut(firebase.auth());
+  const handleSignOut = () => signOut(firebase.auth())
 
   return (
     <IonPage>
@@ -57,17 +61,17 @@ const Home: React.FC = () => {
         </IonHeader>
         <IonCard>
           {user && (
-            <IonCardHeader data-test-id="card-header">
+            <IonCardHeader id="card-header">
               Logged in as {user?.displayName}
             </IonCardHeader>
           )}
           <IonItem>
             {user ? (
-              <IonButton data-test-id="logout" onClick={handleSignOut}>
+              <IonButton id="logout-button" onClick={handleSignOut}>
                 Logout
               </IonButton>
             ) : (
-              <IonButton data-test-id="login" onClick={handleLoginClick}>
+              <IonButton id="login-button" onClick={handleLoginClick}>
                 GitHub Login
               </IonButton>
             )}
@@ -75,7 +79,7 @@ const Home: React.FC = () => {
         </IonCard>
       </IonContent>
     </IonPage>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

@@ -1,5 +1,5 @@
-import * as path from "path";
-import * as tsNode from "ts-node";
+import * as path from "path"
+import * as tsNode from "ts-node"
 
 exports.config = {
   //
@@ -187,7 +187,7 @@ exports.config = {
   onPrepare: () => {
     tsNode.register({
       project: path.join(__dirname, "./tsconfig.json"),
-    });
+    })
   },
   /**
    * Gets executed before a worker process is spawned and can be used to initialise specific service
@@ -303,4 +303,4 @@ exports.config = {
    */
   //onReload: function(oldSessionId, newSessionId) {
   //}
-};
+}

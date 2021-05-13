@@ -1,10 +1,10 @@
-import WebView from "../helpers/WebView";
+import WebView from "../helpers/WebView"
 
 const SELECTORS = {
   WEB_VIEW_SCREEN: browser.isAndroid
     ? "*//android.webkit.WebView"
     : "*//XCUIElementTypeWebView",
-};
+}
 
 class WebViewScreen extends WebView {
   /**
@@ -16,8 +16,8 @@ class WebViewScreen extends WebView {
     $(SELECTORS.WEB_VIEW_SCREEN).waitForDisplayed({
       timeout: 20000,
       reverse: !isShown,
-    });
+    })
   }
 }
 
-export default new WebViewScreen();
+export default new WebViewScreen()

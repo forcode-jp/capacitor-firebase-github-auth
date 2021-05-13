@@ -7,7 +7,11 @@ on:
 jobs:
   build:
     runs-on: macos-latest
-
+    env:
+      API_LEVEL: 30
+      TARGET: google_apis
+      PROFILE: "Nexus S"
+      AVD_NAME: nexus_s
     steps:
       - uses: actions/checkout@v2
 
@@ -56,11 +60,6 @@ jobs:
 
       - name: Run Android Emulator
         continue-on-error: true
-        env:
-          API_LEVEL: 30
-          TARGET: google_apis
-          PROFILE: pixel_xl
-          AVD_NAME: Pixel_XL_API_30
         run: bash ./scripts/start-android-emulator.sh
 
       - name: Run e2e tests
