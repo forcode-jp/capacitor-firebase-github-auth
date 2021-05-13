@@ -13271,7 +13271,7 @@ protobufjs@^6.8.6:
     "@types/node" "^13.7.0"
     long "^4.0.0"
 
-protractor-beautiful-reporter@^1.3.6:
+protractor-beautiful-reporter@1.3.6:
   version "1.3.6"
   resolved "https://registry.yarnpkg.com/protractor-beautiful-reporter/-/protractor-beautiful-reporter-1.3.6.tgz#36ea05506ddf4d3913237ed915aba914237e7a77"
   integrity sha512-lALPJJV8li3AqweEfKcXSRBK/QSe82FyB13b1+6NQvrAkE6YyoZ91pYg1ZNUcaZU0HO+pPAmbF4mfW+5FLvieg==
