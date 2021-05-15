@@ -8,7 +8,7 @@
   "scripts": {
     "lint": "yarn prettier -- --check && npm run swiftlint -- lint",
     "prettier": "prettier \"**/*.{css,html,ts,js,java}\"",
-    "swiftlint": "node-swiftlint",
+    "swiftlint": "yarn workspace capacitor-firebase-github-auth node-swiftlint",
     "watch": "yarn workspace capacitor-firebase-github-auth watch",
     "build": "yarn workspace capacitor-firebase-github-auth build && yarn workspace example build && yarn workspace example cap copy",
     "ios": "yarn build && yarn workspace example ios",
