@@ -56,6 +56,10 @@ jobs:
         run: |
           echo ${{ secrets.DEBUG_KEYSTORE }} | base64 --decode > ~/.android/debug.keystore
 
+      - name: Signing Report
+        run: |
+          yarn workspace example signingReport
+
       - name: Run appium server
         run: mkdir -p logs && yarn e2e:appium > logs/appium.log &
 

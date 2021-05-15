@@ -19,6 +19,7 @@
     "wdio:build": "tsc --project ./wdio/tsconfig.json",
     "wdio": "wdio wdio/out/wdio.conf.js",
     "build:android": "cd android && ./gradlew assemble",
+    "signingReport": "cd android && ./gradlew signingReport",
     "build:ios": "cd ios/App && xcodebuild -showsdks && xcodebuild -workspace App.xcworkspace -arch x86_64 -sdk iphonesimulator -scheme App clean archive -configuration debug -archivePath App.xcarchive"
   },
   "eslintConfig": {
