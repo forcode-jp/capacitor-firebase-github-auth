@@ -1,12 +1,12 @@
 export const CONTEXT_REF = {
-  NATIVE: "native",
-  WEBVIEW: "webview",
-}
+  NATIVE: 'native',
+  WEBVIEW: 'webview',
+};
 const DOCUMENT_READY_STATE = {
-  COMPLETE: "complete",
-  INTERACTIVE: "interactive",
-  LOADING: "loading",
-}
+  COMPLETE: 'complete',
+  INTERACTIVE: 'interactive',
+  LOADING: 'loading',
+};
 
 class WebView {
   /**
@@ -20,21 +20,21 @@ class WebView {
   waitForWebViewContextLoaded() {
     driver.waitUntil(
       () => {
-        const currentContexts = this.getCurrentContexts()
+        const currentContexts = this.getCurrentContexts();
 
         return (
           currentContexts.length > 1 &&
-          currentContexts.find((context) =>
-            context.toLowerCase().includes(CONTEXT_REF.WEBVIEW)
+          currentContexts.find(context =>
+            context.toLowerCase().includes(CONTEXT_REF.WEBVIEW),
           )
-        )
+        );
       },
       {
         timeout: 10000,
-        timeoutMsg: "Webview context not loaded",
+        timeoutMsg: 'Webview context not loaded',
         interval: 100,
-      }
-    )
+      },
+    );
   }
 
   /**
@@ -44,8 +44,8 @@ class WebView {
    */
   switchToContext(context) {
     driver.switchContext(
-      this.getCurrentContexts()[context === CONTEXT_REF.WEBVIEW ? 1 : 0]
-    )
+      this.getCurrentContexts()[context === CONTEXT_REF.WEBVIEW ? 1 : 0],
+    );
   }
 
   /**
@@ -54,7 +54,7 @@ class WebView {
    * @return {object} An object containing the list of all available contexts
    */
   getCurrentContexts() {
-    return driver.getContexts()
+    return driver.getContexts();
   }
 
   /**
@@ -67,21 +67,21 @@ class WebView {
         DOCUMENT_READY_STATE.COMPLETE,
       {
         timeout: 15000,
-        timeoutMsg: "Website not loaded",
+        timeoutMsg: 'Website not loaded',
         interval: 100,
-      }
-    )
+      },
+    );
   }
 
   /**
    * Wait for the website in the webview to be loaded
    */
   waitForWebsiteLoaded() {
-    this.waitForWebViewContextLoaded()
-    this.switchToContext(CONTEXT_REF.WEBVIEW)
-    this.waitForDocumentFullyLoaded()
-    this.switchToContext(CONTEXT_REF.NATIVE)
+    this.waitForWebViewContextLoaded();
+    this.switchToContext(CONTEXT_REF.WEBVIEW);
+    this.waitForDocumentFullyLoaded();
+    this.switchToContext(CONTEXT_REF.NATIVE);
   }
 }
 
-export default WebView
+export default WebView;

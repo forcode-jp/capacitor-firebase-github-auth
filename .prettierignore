@@ -2,6 +2,7 @@
 **/coverage/**
 **/build/**
 **/out/**
+**/public/**
 .gradle
 .idea
 android
@@ -9,3 +10,4 @@ ios
 dist
 .sqlite
 .gql
+**/screenshots/**

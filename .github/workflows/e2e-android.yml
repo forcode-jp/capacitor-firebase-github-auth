@@ -10,14 +10,14 @@ jobs:
     env:
       API_LEVEL: 30
       TARGET: google_apis
-      PROFILE: "Nexus S"
+      PROFILE: 'Nexus S'
       AVD_NAME: nexus_s
     steps:
       - uses: actions/checkout@v2
 
       - uses: actions/cache@v2
         with:
-          path: "**/node_modules"
+          path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-modules-

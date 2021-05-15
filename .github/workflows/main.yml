@@ -2,23 +2,23 @@ name: Lint main
 on:
   push:
     branches: [main]
-    paths: ["packages/capacitor-firebase-github-auth/**"]
+    paths: ['packages/capacitor-firebase-github-auth/**']
   pull_request:
     branches: [main]
-    paths: ["packages/capacitor-firebase-github-auth/**"]
+    paths: ['packages/capacitor-firebase-github-auth/**']
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
       - uses: actions/checkout@v2
 
       - uses: actions/cache@v2
         with:
-          path: "**/node_modules"
+          path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - run: yarn build
 
-      - run: yarn workspace capacitor-firebase-github-auth lint
+      - run: yarn lint
 
       - run: yarn workspace capacitor-firebase-github-auth test
