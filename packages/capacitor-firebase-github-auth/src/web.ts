@@ -8,7 +8,8 @@ type OAuthCredential = firebase.auth.OAuthCredential;
 
 export class GitHubFirebaseAuthWeb
   extends WebPlugin
-  implements GitHubFirebaseAuthPlugin {
+  implements GitHubFirebaseAuthPlugin
+{
   constructor() {
     super({
       name: 'GitHubFirebaseAuth',

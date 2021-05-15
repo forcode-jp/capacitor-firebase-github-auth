@@ -1,5 +1,5 @@
-import * as path from "path"
-import * as tsNode from "ts-node"
+import * as path from 'path';
+import * as tsNode from 'ts-node';
 
 exports.config = {
   //
@@ -9,7 +9,7 @@ exports.config = {
   //
   // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
   // on a remote machine).
-  runner: "local",
+  runner: 'local',
   port: 4723,
   //
   // ==================
@@ -27,7 +27,7 @@ exports.config = {
   // then the current working directory is where your `package.json` resides, so `wdio`
   // will be called from there.
   //
-  specs: ["./test/specs/**/*.ts"],
+  specs: ['./test/specs/**/*.ts'],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -56,15 +56,15 @@ exports.config = {
   //
   capabilities: [
     {
-      platformName: "Android",
-      deviceName: "Android Emulator",
+      platformName: 'Android',
+      deviceName: 'Android Emulator',
       app: path.join(
         __dirname,
-        "../android/app/build/outputs/apk/debug/app-debug.apk"
+        '../android/app/build/outputs/apk/debug/app-debug.apk',
       ),
-      avd: "Pixel_XL_API_30",
+      avd: 'Pixel_XL_API_30',
       //  the name of the driver you wish to use
-      automationName: "UiAutomator2",
+      automationName: 'UiAutomator2',
       // 	Allow to install a test package which has android:testOnly="true" in the manifest. false by default
       allowTestPackages: true,
       // Don't reset app state before this session. See here for more details
@@ -82,7 +82,7 @@ exports.config = {
   // Define all options that are relevant for the WebdriverIO instance here
   //
   // Level of logging verbosity: trace | debug | info | warn | error | silent
-  logLevel: "info",
+  logLevel: 'info',
   //
   // Set specific log levels per logger
   // loggers:
@@ -106,7 +106,7 @@ exports.config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  baseUrl: "http://localhost",
+  baseUrl: 'http://localhost',
   //
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
@@ -124,10 +124,10 @@ exports.config = {
   // commands. Instead, they hook themselves up into the test process.
   services: [
     [
-      "appium",
+      'appium',
       {
         args: {
-          allowInsecure: "chromedriver_autodownload",
+          allowInsecure: 'chromedriver_autodownload',
         },
         // Appium service options here
         // args: ["--allow-insecure", "chromedriver_autodownload"],
@@ -141,7 +141,7 @@ exports.config = {
   //
   // Make sure you have the wdio adapter package for the specific framework installed
   // before running any tests.
-  framework: "jasmine",
+  framework: 'jasmine',
   //
   // The number of times to retry the entire specfile when it fails as a whole
   // specFileRetries: 1,
@@ -155,7 +155,7 @@ exports.config = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
-  reporters: ["spec", "junit"],
+  reporters: ['spec', 'junit'],
 
   //
   // Options to be passed to Jasmine.
@@ -186,8 +186,8 @@ exports.config = {
    */
   onPrepare: () => {
     tsNode.register({
-      project: path.join(__dirname, "./tsconfig.json"),
-    })
+      project: path.join(__dirname, './tsconfig.json'),
+    });
   },
   /**
    * Gets executed before a worker process is spawned and can be used to initialise specific service
@@ -303,4 +303,4 @@ exports.config = {
    */
   //onReload: function(oldSessionId, newSessionId) {
   //}
-}
+};

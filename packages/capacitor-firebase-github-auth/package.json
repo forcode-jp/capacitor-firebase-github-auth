@@ -42,14 +42,6 @@
       "src": "android"
     }
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "prettier": "@ionic/prettier-config",
-  "swiftlint": "@ionic/swiftlint-config",
   "repository": {
     "type": "git",
     "url": "git@github.com:uraway/capacitor-firebase-github-plugin.git"
