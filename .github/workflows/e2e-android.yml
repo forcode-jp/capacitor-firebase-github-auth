@@ -51,6 +51,10 @@ jobs:
           echo $GOOGLE_SERVICE | base64 --decode > packages/example/android/app/google-services.json
           echo $GOOGLE_SERVICE_INFO_PLIST | base64 --decode > packages/example/ios/App/GoogleService-Info.plist
 
+      - name: Restore debug.keystore
+        run: |
+          echo ${{ secrets.DEBUG_KEYSTORE }} | base64 --decode > ~/.android/debug.keystore
+
       - name: Run appium server
         run: mkdir -p logs && yarn e2e:appium > logs/appium.log &
 
