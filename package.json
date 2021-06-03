@@ -64,7 +64,7 @@
     "@types/jasmine": "3.7.6",
     "appium": "1.21.0",
     "appium-doctor": "1.16.0",
-    "firebase": "8.6.3",
+    "firebase": "8.6.4",
     "prettier": "2.3.0",
     "prettier-plugin-java": "1.1.1",
     "protractor": "7.0.0",
