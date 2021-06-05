@@ -65,7 +65,7 @@
     "appium": "1.21.0",
     "appium-doctor": "1.16.0",
     "firebase": "8.6.5",
-    "prettier": "2.3.0",
+    "prettier": "2.3.1",
     "prettier-plugin-java": "1.1.1",
     "protractor": "7.0.0",
     "rimraf": "3.0.2",
