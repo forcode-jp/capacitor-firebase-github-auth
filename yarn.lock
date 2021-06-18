@@ -9453,7 +9453,14 @@ io.appium.settings@^3.3.0:
   resolved "https://registry.yarnpkg.com/io.appium.settings/-/io.appium.settings-3.3.0.tgz#11e4d1c37b1f227187f67ebe295d8a1f2a9b110f"
   integrity sha512-feZO8TnXtPqNeFGMqZQyl2uLkIGpNV1i9lxXOT9yes0ff6ntzAtMQqRe+5emrYhSNVgekfax7hACz/iU2xcmGg==
 
-ionicons@5.5.1, ionicons@^5.1.2, ionicons@^5.5.1:
+ionicons@5.5.2:
+  version "5.5.2"
+  resolved "https://registry.yarnpkg.com/ionicons/-/ionicons-5.5.2.tgz#1a92315b7cb1d1d5246a85fded50b75d9cb950ec"
+  integrity sha512-SHVBBtzNVQjY4jtcqKEHkqL5nIQwA/o2MIdU9JtMz8kQAB0NRVJFv5AxwmVbXXKDpxz57SiEjeLp8Uzt7jirpw==
+  dependencies:
+    "@stencil/core" "^2.5.0"
+
+ionicons@^5.1.2, ionicons@^5.5.1:
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/ionicons/-/ionicons-5.5.1.tgz#c337b2a0871c18910dea5c72384b0f0a393abf15"
   integrity sha512-1auVisfaXmkmxINer8Q3kJGHP1vSxk86hf7By95eJ+Av9+oBcNuAEBfSe3jaMaGRVxVw8U/2j23MFq7R3c0HPg==
