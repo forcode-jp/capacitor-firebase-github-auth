@@ -61,7 +61,7 @@
     "@ionic/swiftlint-config": "1.1.2",
     "@rollup/plugin-json": "4.1.0",
     "@rollup/plugin-node-resolve": "13.0.0",
-    "@types/jasmine": "3.7.7",
+    "@types/jasmine": "3.7.8",
     "appium": "1.21.0",
     "appium-doctor": "1.16.0",
     "firebase": "8.7.0",
