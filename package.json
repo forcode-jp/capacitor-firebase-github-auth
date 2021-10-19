@@ -19,7 +19,7 @@
     "e2e:prepare": "yarn workspace example build:android && yarn workspace example build:ios"
   },
   "dependencies": {
-    "@capacitor/core": "2.4.8",
+    "@capacitor/core": "2.5.0",
     "@ionic/react": "5.6.11",
     "@ionic/react-router": "5.6.11",
     "@testing-library/jest-dom": "5.14.1",
@@ -53,10 +53,10 @@
     "@types/react-dom": "17.0.8",
     "@types/react-router": "5.1.15",
     "@types/react-router-dom": "5.1.7",
-    "@capacitor/android": "2.4.8",
-    "@capacitor/cli": "2.4.8",
-    "@capacitor/core": "2.4.8",
-    "@capacitor/ios": "2.4.8",
+    "@capacitor/android": "2.5.0",
+    "@capacitor/cli": "2.5.0",
+    "@capacitor/core": "2.5.0",
+    "@capacitor/ios": "2.5.0",
     "@ionic/prettier-config": "1.0.1",
     "@ionic/swiftlint-config": "1.1.2",
     "@rollup/plugin-json": "4.1.0",
