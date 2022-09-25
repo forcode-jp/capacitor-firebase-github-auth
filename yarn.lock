@@ -16279,14 +16279,15 @@ wcwidth@>=1.0.1:
   dependencies:
     defaults "^1.0.3"
 
-wdio-chromedriver-service@7.1.1:
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/wdio-chromedriver-service/-/wdio-chromedriver-service-7.1.1.tgz#2db5ff71b7085c8afd7c32db9f8b8687129ac55c"
-  integrity sha512-wZyXKJDwuK+17SWm/OvVNXIs+dLJPMeeDRjbMKigSsBzo8h9LGnfAonIs35CrpCyRrNb8MZmntUXDI0LpkP2kA==
+wdio-chromedriver-service@7.3.2:
+  version "7.3.2"
+  resolved "https://registry.yarnpkg.com/wdio-chromedriver-service/-/wdio-chromedriver-service-7.3.2.tgz#569053df4ceaf6ce9e43bebcdd540197f516e313"
+  integrity sha512-4M3OqFzBSC4FdbqkfwOrUMeroMEuyIFCHfcUebkU6tJ1w5GenWO61YweJ8NKlhPZx9nkO8223+20MpvBjv+fTg==
   dependencies:
     "@wdio/logger" "^7.5.3"
     fs-extra "^9.1.0"
     split2 "^3.2.2"
+    tcp-port-used "^1.0.1"
 
 web-vitals@2.1.0:
   version "2.1.0"
