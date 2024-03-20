@@ -20,7 +20,7 @@
   "author": "uraway",
   "license": "MIT",
   "peerDependencies": {
-    "@capacitor/core": "^2.4.7",
+    "@capacitor/core": "^2.4.7 || ^5.0.0",
     "firebase": "^8.0.0"
   },
   "files": [
