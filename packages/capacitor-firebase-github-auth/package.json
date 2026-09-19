@@ -21,7 +21,7 @@
   "license": "MIT",
   "peerDependencies": {
     "@capacitor/core": "^2.4.7",
-    "firebase": "^8.0.0"
+    "firebase": "^10.9.0"
   },
   "files": [
     "dist/",
